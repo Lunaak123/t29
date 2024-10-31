@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Operations</title>
+    <link rel="stylesheet" href="sheet.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Operations Panel (Fixed at the Top) -->
+        <div class="operations-panel">
+            <h1>Operations Panel</h1>
+
+            <!-- Sheet Selection (Added for selecting sub-sheets) -->
+            <div class="input-group">
+                <label for="sheet-selection">Select Sub-sheet:</label>
+                <select id="sheet-selection"></select>
+            </div>
+
+            <!-- First row: Primary Column and Operation Columns -->
+            <div class="operation-row">
+                <div class="input-group">
+                    <label for="primary-column">Primary Column:</label>
+                    <input type="text" id="primary-column" placeholder="A">
+                </div>
+
+                <div class="input-group">
+                    <label for="operation-columns">Operation Columns:</label>
+                    <input type="text" id="operation-columns" placeholder="A,B,C">
+                </div>
+            </div>
+
+            <!-- Second row: Operation Type and Null/Not Null -->
+            <div class="operation-row">
+                <div class="input-group">
+                    <label for="operation-type">Operation Type:</label>
+                    <select id="operation-type">
+                        <option value="and">AND</option>
+                        <option value="or">OR</option>
+                    </select>
+                </div>
+
+                <div class="input-group null-selection">
+                    <label for="operation">Null/Not-Null:</label>
+                    <select id="operation">
+                        <option value="null">Null</option>
+                        <option value="not-null">Not Null</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Apply Button -->
+            <button id="apply-operation" class="apply-button">Apply Operation</button>
+        </div>
+
+        <!-- Excel Sheet Display Area -->
+        <div id="sheet-content" class="sheet-content"></div>
+
+        <!-- Download/Print Button (Bottom Right) -->
+        <div class="download-section">
+            <button id="download-button">Print</button>
+        </div>
+
+        <!-- Modal for File Naming and Format -->
+        <div id="download-modal" class="modal">
+            <div class="modal-content">
+                <h2>Download the File</h2>
+                <label for="filename">Enter Filename:</label>
+                <input type="text" id="filename" placeholder="filename">
+
+                <label for="file-format">Select Format:</label>
+                <select id="file-format">
+                    <option value="xlsx">Excel (.xlsx)</option>
+                    <option value="csv">CSV (.csv)</option>
+                </select>
+
+                <button id="confirm-download">Download</button>
+                <button id="close-modal">Cancel</button>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+        <script src="sheet.js"></script>
+    </div>
+</body>
+</html>
